@@ -1,0 +1,80 @@
+---
+title: "Histograms"
+author: "Kasey DeRaad"
+date: "3/25/2021"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Required packages: 
+
+"pdfcrop"      - Required for the lattice package.
+
+"ghostscript"  - Required for the lattice package.
+
+"lattice"      - Allows use of the histogram() function.
+
+"openintro"    - Allows access to data set.
+
+Histogram 1:
+```{r, echo=TRUE}
+library(lattice)
+library(openintro)
+histogram(age_at_mar$age)
+```
+
+Histogram 2:
+```{r, echo=TRUE}
+histogram(age_at_mar$age, type = "count",    # Y-axis as a count of observations
+          main = "U.S. Women & Marriage",
+          xlab = "Age at first marriage(years)",
+          col = "gold2")
+```
+
+Histogram 3:
+```{r, echo=TRUE}
+histogram(age_at_mar$age, type = "percent", # Y-axis as a percent
+          main = "U.S. Women & Marriage",
+          xlab = "Age at first marriage (years)",
+          col = "darkorchid2")
+```
+
+Histogram 4:
+```{r, echo=TRUE}
+histogram(age_at_mar$age, type = "percent", # Y-axis as a percent
+          main = "U.S. Women & Marriage",
+          xlab = "Age at first marriage (years)",
+          col = "darkslategray2",  # Changes color
+          breaks = 25)   # Breaks the histogram into 25 bars
+```
+
+Histogram 5:
+```{r, echo=TRUE}
+mybins2 <- seq(10,50,2)  #creates list of numbers: starts at 5 goes to 50 in increments of 5.
+
+histogram(age_at_mar$age, type = "percent", # Y-axis as a percent
+          main = "U.S. Women & Marriage",
+          xlab = "Age at first marriage (years)",
+          col = "darkorchid3",   # Changed color
+          breaks = mybins2)
+```
+
+Histogram 6:
+```{r, echo=TRUE}
+mybins10 <- c(0,10,20,30,40,50) #Creates list of the numbers shown in x-axis.
+
+histogram(age_at_mar$age, type = "percent", # Y-axis as a percent
+          main = "U.S. Women & Marriage",
+          xlab = "Age at first marriage (years)",
+          col = "darkorchid4",  # color change
+          breaks = mybins10)  # Change in the unit at the x-axis
+```
+
+
+
+
